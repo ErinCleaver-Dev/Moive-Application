@@ -5,9 +5,9 @@ const MovieList = ({ movies }) => {
     return (
         <Container>
             Movie List
-
+            {console.log(movies)}
             {movies.map((movie) => (
-                <h2>movie.title</h2>
+                <h2 id={movie.id}>{movie.title}</h2>
             ))}
         </Container>
     )

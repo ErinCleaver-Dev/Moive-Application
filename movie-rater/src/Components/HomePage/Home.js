@@ -12,7 +12,7 @@ const Home = ({token}) => {
     // get data from the Django sql database
     useEffect(()=>{
         // use the fetch to get the data from the database
-        fetch("http://127.0.0.1:8000/api/movies", {
+        fetch("http://127.0.0.1:8000/api/movies/", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json', 
