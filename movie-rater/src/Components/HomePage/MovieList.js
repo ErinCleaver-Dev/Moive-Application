@@ -7,7 +7,7 @@ const MovieList = ({ movies }) => {
             Movie List
             {console.log(movies)}
             {movies.map((movie) => (
-                <h2 id={movie.id}>{movie.title}</h2>
+                <h2 key={movie.id} onClick={movieClicked()}>{movie.title}</h2>
             ))}
         </Container>
     )
