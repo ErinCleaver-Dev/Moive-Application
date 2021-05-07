@@ -7,6 +7,22 @@ class Movie(models.Model):
     title = models.CharField(max_length=32)
     description = models.TextField(max_length=360)
 
+    #created a function for the number of ratings
+    # it gets the the length of the array in order to show the amount of movies
+    def number_of_ratings(self):
+        ratings = Rating.objects.filter(movie=self)
+        return len(ratings)
+
+    def avg_rating(self):
+        sum = 0
+        ratings = Rating.objects.filter(movie=self)
+        for rating in ratings:
+            sum += rating.stars
+        if(len(ratings) > 0):
+            return sum/len(ratings)
+        else:
+            return 0;
+
 # Added a model of the raiting that will have a one to one relationship with the movies
 class Rating(models.Model):
     
