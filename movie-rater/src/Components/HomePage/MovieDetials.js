@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components'
+import StarRateIcon from '@material-ui/icons/StarRate';
 
-const MovieDetials = ({ movies } ) => {
+const MovieDetials = ({ movie } ) => {
+ 
+
     return (
         <Container>
-            Movie Details
+            <h1>{movie.title}</h1>
+            <p>{movie.description}</p>
+            
         </Container>
     )
 }

@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, clickedMovie }) => {
+
+    const movieClicked = movie => evt => {
+        clickedMovie(movie)
+    }
+
     return (
         <Container>
             Movie List
             {console.log(movies)}
             {movies.map((movie) => (
-                <h2 key={movie.id} onClick={movieClicked()}>{movie.title}</h2>
+                <h2 key={movie.id} onClick={movieClicked(movie)}>{movie.title}</h2>
             ))}
         </Container>
     )

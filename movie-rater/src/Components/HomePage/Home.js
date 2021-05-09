@@ -7,6 +7,7 @@ const Home = ({token}) => {
 
     // Creates a const useState for holding a list of movies 
     const [movies, setMovie] = useState ([]);
+    const [selectedMovie, setSelectedMovie] = useState([]);
 
     // created a react hock for the use effect to 
     // get data from the Django sql database
@@ -23,10 +24,14 @@ const Home = ({token}) => {
         .catch(error =>console.log(error))
     }, [])
 
+    const clickedMovie = movie => {
+        setSelectedMovie(movie);
+    }
+
     return (
         <Container>
-            <MovieList movies={movies} />
-            <MovieDetials />
+            <MovieList movies={movies} clickedMovie={clickedMovie}/>
+            <MovieDetials movie={selectedMovie}/>
         </Container>
     )
 }
