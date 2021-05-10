@@ -21,7 +21,7 @@ const MovieList = ({ movies, clickedMovie }) => {
 export default MovieList
 
 const Container = styled.div`
-    flex: .15;
+    flex: .30;
     border-right: 2px solid black;
     min-height: 100vh;
     padding: 10px;

@@ -18,10 +18,12 @@ class Movie(models.Model):
         ratings = Rating.objects.filter(movie=self)
         for rating in ratings:
             sum += rating.stars
-        if(len(ratings) > 0):
-            return sum/len(ratings)
+
+        if len(ratings) > 0:
+            return sum / len(ratings)
         else:
-            return 0;
+            return 0
+
 
 # Added a model of the raiting that will have a one to one relationship with the movies
 class Rating(models.Model):
@@ -37,6 +39,6 @@ class Rating(models.Model):
     stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     class Mata:
         # lets you declare that a object is unique_together
-        unique_together = (('user', 'movie'))
+        unique_together = (('user', 'movie'),)
         #lets you index to values together
-        index_together = (('user', 'movie'))        
+        index_together = (('user', 'movie'),)        
