@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import StarRateIcon from '@material-ui/icons/StarRate';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import Rating from './Rating';
 
 const MovieDetials = ({ movie } ) => {
     // Created a fuctnion for displaying stars.
@@ -26,9 +27,11 @@ const MovieDetials = ({ movie } ) => {
             { movie.number_of_ratings != null
             ? (
             <Container key={movie.id}>
-            <Title>{movie.title}</Title>
-            <p>{movie.description}</p>
-            <StarContainer>{displayStars(movie)}</StarContainer>
+                <Title>{movie.title}</Title>
+                <p>{movie.description}</p>
+                <StarContainer>{displayStars(movie)}</StarContainer>
+                <Rating movie={movie}/>
+
             </Container>
             ) : ""
             } 
@@ -40,6 +43,7 @@ export default MovieDetials
 
 const Container = styled.div`
     flex: .75;
+    padding-left: 25px;
     padding-top: 10px;
     p {
         font-size: 22px;
@@ -58,6 +62,7 @@ const StarContainer = styled.div`
     font-size: 22px;
     display: flex;
     align-items: center;
+    padding-bottom: 5px;
 `
 
 const StarOrange = styled(StarRateIcon)`
@@ -66,4 +71,8 @@ const StarOrange = styled(StarRateIcon)`
 
 const StarOutlined = styled(StarOutlineIcon)`
 
+`
+
+const RateContainer = styled.div`
+    
 `
