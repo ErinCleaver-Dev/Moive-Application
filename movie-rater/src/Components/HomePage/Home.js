@@ -28,10 +28,14 @@ const Home = ({token}) => {
         setSelectedMovie(movie);
     }
 
+    const updateMovie = movie => {
+        setSelectedMovie(movie);
+    }
+
     return (
         <Container>
             <MovieList movies={movies} clickedMovie={clickedMovie}/>
-            <MovieDetials movie={selectedMovie}/>
+            <MovieDetials movie={selectedMovie} updateMovie={updateMovie}/>
         </Container>
     )
 }

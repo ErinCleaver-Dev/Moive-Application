@@ -4,7 +4,7 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Rating from './Rating';
 
-const MovieDetials = ({ movie } ) => {
+const MovieDetials = ({ movie, updateMovie } ) => {
     // Created a fuctnion for displaying stars.
     const displayStars = (movieRater) => {
         let contant = [];
@@ -21,6 +21,18 @@ const MovieDetials = ({ movie } ) => {
         return contant;
     }
 
+    const getDatails = () => {
+        fetch(`http://127.0.0.1:8000/api/movies/${movie.id}/`, {
+            method: 'Get',
+            headers: {
+                'Content-Type': 'application/json', 
+                'Authorization': 'Token 812e9bd5fb611a6c33957b623010b9edb6eacc4c'
+            }
+        }).then(resp => resp.json())
+        .then(resp => updateMovie(resp))
+        .catch(error =>console.log(error))
+    }
+
     return (
         
         <div>
@@ -30,7 +42,7 @@ const MovieDetials = ({ movie } ) => {
                 <Title>{movie.title}</Title>
                 <p>{movie.description}</p>
                 <StarContainer>{displayStars(movie)}</StarContainer>
-                <Rating movie={movie}/>
+                <Rating movie={movie} getDatails={getDatails}/>
 
             </Container>
             ) : ""
