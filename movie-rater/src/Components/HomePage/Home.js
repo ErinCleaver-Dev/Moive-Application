@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import MovieDetials from './MovieDetials'
 import MovieList from './MovieList'
+import { EditForm } from '../Forms/MovieForms'
 
 const Home = ({token}) => {
 
     // Creates a const useState for holding a list of movies 
     const [movies, setMovie] = useState ([]);
     const [selectedMovie, setSelectedMovie] = useState([]);
+    const [editMovie, setEditMovie] = useState([]);
+
 
     // created a react hock for the use effect to 
     // get data from the Django sql database
@@ -24,18 +27,32 @@ const Home = ({token}) => {
         .catch(error =>console.log(error))
     }, [])
 
-    const clickedMovie = movie => {
-        setSelectedMovie(movie);
+
+    const editClicked = movie => {
+        setEditMovie(movie);
+        setSelectedMovie([]);
+
     }
 
-    const updateMovie = movie => {
+    const loadMovie = movie => {
         setSelectedMovie(movie);
+        setEditMovie([]);
     }
+
+
 
     return (
         <Container>
-            <MovieList movies={movies} clickedMovie={clickedMovie}/>
-            <MovieDetials movie={selectedMovie} updateMovie={updateMovie}/>
+            <MovieList movies={movies} clickedMovie={loadMovie} editClicked={editClicked}/>
+            <div>
+            {selectedMovie != null ?
+                (<MovieDetials movie={selectedMovie} updateMovie={loadMovie}/>) : ""
+            } 
+            {editMovie != null ? 
+                (<EditForm movie={editMovie} />): ""
+            }
+            </div>
+            
         </Container>
     )
 }
@@ -43,6 +60,6 @@ const Home = ({token}) => {
 export default Home
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns:  1fr 3fr;
 `

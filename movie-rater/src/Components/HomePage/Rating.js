@@ -52,6 +52,7 @@ export default Rating
 
 const Container = styled.div`
     padding-top: 25px;
+    padding-left: 25px;
     border-top: 2px solid black;
 `
 

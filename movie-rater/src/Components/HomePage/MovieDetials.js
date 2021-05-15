@@ -34,43 +34,37 @@ const MovieDetials = ({ movie, updateMovie } ) => {
     }
 
     return (
-        
         <div>
-            { movie.number_of_ratings != null
-            ? (
-            <Container key={movie.id}>
-                <Title>{movie.title}</Title>
-                <p>{movie.description}</p>
-                <StarContainer>{displayStars(movie)}</StarContainer>
-                <Rating movie={movie} getDatails={getDatails}/>
-
-            </Container>
-            ) : ""
-            } 
+        {movie.id != null ? 
+        (<Container key={movie.id}>
+            <Title>{movie.title}</Title>
+            <Details>{movie.description}</Details>
+            <StarContainer>{displayStars(movie)}</StarContainer>
+            <Rating movie={movie} getDatails={getDatails}/>
+        </Container>) : ""
+        }
         </div>
+
     )
 }
 
 export default MovieDetials
 
 const Container = styled.div`
-    flex: .75;
-    padding-left: 25px;
-    padding-top: 10px;
-    p {
-        font-size: 22px;
-        padding: 2px;
-        margin: 2px;
-    }
+border-left: 2px solid black;
+height: 100vh;
+
 `
 const Title = styled.div`
+    padding: 10px 50vh;
     width: 100%;
-    
     font-size: 50px;
     border-bottom: 2px solid black;
+
 `
 
 const StarContainer = styled.div`
+    padding-left: 25px;
     font-size: 22px;
     display: flex;
     align-items: center;
@@ -85,6 +79,6 @@ const StarOutlined = styled(StarOutlineIcon)`
 
 `
 
-const RateContainer = styled.div`
-    
+const Details = styled.div`
+    padding: 10px 25px;
 `
