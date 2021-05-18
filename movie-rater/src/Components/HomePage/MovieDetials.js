@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import StarRateIcon from '@material-ui/icons/StarRate';
 import StarOutlineIcon from '@material-ui/icons/StarOutline';
 import Rating from './Rating';
+import { Container, Title } from '../Formats/Formats'
 
 const MovieDetials = ({ movie, updateMovie } ) => {
     // Created a fuctnion for displaying stars.
@@ -49,19 +50,6 @@ const MovieDetials = ({ movie, updateMovie } ) => {
 }
 
 export default MovieDetials
-
-const Container = styled.div`
-border-left: 2px solid black;
-height: 100vh;
-
-`
-const Title = styled.div`
-    padding: 10px 50vh;
-    width: 100%;
-    font-size: 50px;
-    border-bottom: 2px solid black;
-
-`
 
 const StarContainer = styled.div`
     padding-left: 25px;

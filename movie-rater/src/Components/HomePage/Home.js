@@ -30,13 +30,13 @@ const Home = ({token}) => {
 
     const editClicked = movie => {
         setEditMovie(movie);
-        setSelectedMovie([]);
+        setSelectedMovie(null);
 
     }
 
     const loadMovie = movie => {
         setSelectedMovie(movie);
-        setEditMovie([]);
+        setEditMovie(null);
     }
 
 

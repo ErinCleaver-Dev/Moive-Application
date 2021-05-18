@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
-
+import { Container, Title } from '../Formats/Formats'
+import Form from './Form'
 
 export const EditForm = ({ movie }) => {
 
@@ -8,12 +9,11 @@ export const EditForm = ({ movie }) => {
         <Container>
             {movie.id != null ? ( 
             <Movie>
-            <Title>
-               Edit {movie.title} 
-            </Title>
-            <FormContainer>
-
-            </FormContainer>
+                <Title>
+                Edit {movie.title} 
+                </Title>
+                <Form/>
+                <Button/>
             </Movie>
             ) : null }
         </Container>
@@ -24,31 +24,20 @@ export const CreateMovie = () => {
     return (
 
         <Container>
-        <Movie>
-        <Title>
-        </Title>
-        <FormContainer>
-
-        </FormContainer>
-        </Movie>
+            <Movie>
+                <Title>
+                    Add New Movie
+                </Title>
+                <Form/>
+                <Button/>
+            </Movie>
         </Container>
     )
 }
 
-const Container = styled.div`
-    border-left: 2px solid black;
-    height: 100vh;
-`
 
-const Title = styled.h2`
-    padding: 10px 50vh;
-    border-bottom: 3px solid black;
-`
-
-const FormContainer = styled.form`
-
-`
-const Movie = styled.div`
+const Movie = styled.form`
     display: flex;
-
 `
+
+const Button = styled.button``

@@ -47,7 +47,6 @@ const Movie = styled.div`
         color: darkblue;
         cursor: pointer;
         position: relative;
-        top: 20px;
         padding: 5px;
     }
 `
